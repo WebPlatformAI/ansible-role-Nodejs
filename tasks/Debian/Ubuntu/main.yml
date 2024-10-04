@@ -1,0 +1,13 @@
+---
+- name: Update apt package cache
+  apt:
+    update_cache: yes
+  become: true
+
+- name: Install Node.js and npm
+  apt:
+    name: 
+      - nodejs
+      - npm
+    state: present
+  become: true

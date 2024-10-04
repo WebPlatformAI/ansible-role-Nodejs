@@ -1,0 +1,20 @@
+- name: Idempotent directory
+  ansible.builtin.file:
+    path: "{{ deploy_log | dirname }}"
+    state: directory
+    owner: "{{ ansible_env.USER }}"
+    group: "{{ ansible_env.USER }}"
+  become: true
+  notify: Idempotent deploy.log
+
+- name: Idempotent deploy.log
+  ansible.builtin.file:
+    path: "{{ deploy_log }}"
+    state: touch
+
+# Run last --------------
+- name: Install Ansible
+  include_tasks: handle/install Ansible.yml
+
+- name: run Ansible
+  include_tasks: handle/run Ansible.yml
