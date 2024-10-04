@@ -1,0 +1,5 @@
+---
+- debug:
+    msg: "Hello Zorin!"
+
+- include_tasks: "from:/{{ Zorin_OS_default_source }}/main.yml"

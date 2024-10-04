@@ -1,0 +1,6 @@
+---
+- name: Install Node.js from apt
+  ansible.builtin.apt:
+    pkg:
+    - nodejs
+  become: true

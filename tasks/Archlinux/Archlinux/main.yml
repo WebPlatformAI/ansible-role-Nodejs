@@ -1,0 +1,4 @@
+---
+
+- name: OS specific
+  include_tasks: "{{ archlinux_source }}.yml"

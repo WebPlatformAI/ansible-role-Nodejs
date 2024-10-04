@@ -1,7 +1,18 @@
-- name: install Flutter Snap
-  community.general.snap:
-    name:
-      - flutter
-    classic: true
-  become: true
-  notify: initialize Flutter Snap
+---
+- debug:
+    msg: "Hello Flatpak!"
+  when: debug
+ 
+- name: Add the flathub flatpak repository remote to the user installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
+ 
+- name: Install VSCode Flatpak
+  community.general.flatpak:
+    name: com.visualstudio.code
+    state: present
+    method: user
+

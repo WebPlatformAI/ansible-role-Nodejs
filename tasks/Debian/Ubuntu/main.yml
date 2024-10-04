@@ -1,13 +1,10 @@
 ---
-- name: Update apt package cache
-  apt:
-    update_cache: yes
-  become: true
+- name: Ubuntu source
+  include_tasks: "source/{{ Ubuntu_source }}.yml"
 
-- name: Install Node.js and npm
-  apt:
-    name: 
-      - nodejs
-      - npm
-    state: present
-  become: true
+# old
+# - include_tasks: "from:/{{ source }}/main.yml"
+#  when: in == "native" and not repository
+
+#- include_tasks: "common/{{ ubuntu_default }}/main.yml"
+

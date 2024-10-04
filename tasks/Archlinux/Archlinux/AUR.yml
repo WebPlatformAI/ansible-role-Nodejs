@@ -1,0 +1,8 @@
+---
+#https://github.com/kewlfft/ansible-aur
+
+- name: Install VSCodium from AUR
+  kewlfft.aur.aur:
+    use: yay
+    name:
+      - vscodium
